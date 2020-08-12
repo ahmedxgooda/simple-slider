@@ -1,0 +1,138 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 32px;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background-image: url("../images/pattern-bg.svg");
+  background-position: 89% 26%;
+  background-repeat: no-repeat;
+}
+
+.container {
+  padding: 5% 5% 0 5%;
+  position: relative;
+  display: grid;
+}
+
+.slides {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+article {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  justify-content: center;
+  grid-template-rows: 1fr 0.05fr;
+  grid-template-areas: "text img" ". button";
+}
+
+article .text {
+  background-image: url("../images/pattern-quotes.svg");
+  background-repeat: no-repeat;
+  background-position: 25% 0;
+  align-self: center;
+  grid-area: text;
+}
+
+article .text > p {
+  color: #202046;
+  font-weight: 300;
+}
+
+article .text > p + p > small {
+  color: #babacf;
+  font-weight: 30;
+}
+
+article .text > p + p > strong {
+  font-weight: 700;
+}
+
+article .img {
+  display: grid;
+  grid-area: img;
+}
+
+article .img img {
+  width: 88%;
+  box-shadow: 1px 4px 14px rgba(0, 0, 0, 0.2);
+  align-self: flex-end;
+}
+
+.john {
+  display: none;
+}
+
+.buttons {
+  display: grid;
+  background: white;
+  padding: 1%;
+  grid-template-columns: repeat(2, 1fr);
+  width: 14%;
+  grid-template-rows: 1rem;
+  border-radius: 20px;
+  box-shadow: 1px 4px 14px rgba(0, 0, 0, 0.2);
+  grid-area: button;
+}
+
+.buttons .btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons .btn:focus {
+  outline: 1px dashed rgba(0, 0, 0, 0.4);
+}
+
+.buttons .btn.prev {
+  background: url("../images/icon-prev.svg") no-repeat;
+  background-size: contain;
+  justify-self: flex-start;
+}
+
+.buttons .btn.next {
+  background: url("../images/icon-next.svg") no-repeat;
+  background-size: contain;
+  justify-self: flex-end;
+}
+
+footer {
+  background: url("../images/pattern-curve.svg") no-repeat;
+}
+
+footer.container {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+}
+
+footer.container .attribution {
+  grid-row: 4;
+}
+
+@media screen and (max-width: 726px) {
+  body {
+    background-size: contain;
+    background-position: top;
+  }
+  article {
+    grid-template-areas: "img" "button" "text";
+  }
+  article .text {
+    text-align: center;
+    font-size: 25px;
+    background-position: 50% 10%;
+  }
+  article .img img {
+    justify-self: center;
+  }
+  .buttons {
+    width: 62px;
+    padding: 2%;
+    justify-self: center;
+  }
+}
