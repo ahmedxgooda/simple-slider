@@ -59,10 +59,6 @@ body {
   z-index: 0;
 }
 
-.d-none {
-  display: none !important;
-}
-
 .buttons {
   display: grid;
   background: white;
@@ -109,6 +105,14 @@ footer.container {
 
 footer.container .attribution {
   grid-row: 4;
+}
+
+.transition {
+  transition: transform 1s;
+}
+
+.d-none {
+  display: none !important;
 }
 
 @media screen and (max-width: 935px) {

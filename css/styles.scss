@@ -59,11 +59,6 @@ body {
     }
 }
 
-.d-none {
-    display: none !important;
-
-}
-
 .buttons {
     display: grid;
     background: white;
@@ -106,6 +101,13 @@ footer {
     }
 }
 
+.transition {
+    transition: transform 1s;
+}
+
+.d-none {
+    display: none !important;
+}
 @media screen and (max-width: 935px) {
     body {
         background-size: contain;
