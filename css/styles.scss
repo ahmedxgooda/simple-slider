@@ -16,17 +16,10 @@ body {
 
 .container {
     padding: 5% 5% 0 5%;
-    position: relative;
-    display: grid;
 }
 .slides {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-}
-article {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    justify-content: center;
     grid-template-rows: 1fr 0.05fr;
     grid-template-areas: 
         "text img"
@@ -37,6 +30,8 @@ article {
         background-position: 25% 0;
         align-self: center;
         grid-area: text;
+        width: 115%;
+        z-index: 1;
         > p {
             color: $darkBlue;
             font-weight: 300;
@@ -54,17 +49,18 @@ article {
     .img {
         display: grid;
         grid-area: img;
+        height: 111%;
         img {
         width: 88%;
         box-shadow: 1px 4px 14px rgba(0,0,0,0.2);
-        align-self: flex-end;
-
+        align-self: center;
+        z-index: 0;
         }
     }
 }
 
-.john {
-    display: none;
+.d-none {
+    display: none !important;
 
 }
 
@@ -78,6 +74,7 @@ article {
     border-radius: 20px;
     box-shadow: 1px 4px 14px rgba(0,0,0,0.2);
     grid-area: button;
+    z-index: 2;
     .btn {
         outline: none;
         border: none;
@@ -109,12 +106,12 @@ footer {
     }
 }
 
-@media screen and (max-width: 726px) {
+@media screen and (max-width: 935px) {
     body {
         background-size: contain;
         background-position: top;
     }
-    article {
+    .slides {
         grid-template-areas: 
             "img"
             "button"
@@ -123,13 +120,14 @@ footer {
             text-align: center;
             font-size: 25px;
             background-position: 50% 10%;
+            width: unset;
         }
         .img img {
             justify-self: center;
         }
     }
     .buttons {
-        width: 62px;
+        width: 30%;
         padding: 2%;
         justify-self: center;
     }
