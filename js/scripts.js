@@ -3,7 +3,7 @@ const imgs = document.querySelectorAll('.img');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 
-const slide = (elementOut, elementIn) => {
+const slide = (elementOut, elementIn, timeout_none, time_out_body) => {
 
     for (let text of texts) {        
         text.classList.add('transition');
@@ -14,7 +14,7 @@ const slide = (elementOut, elementIn) => {
 
             setTimeout(() => {
                 text.classList.add('d-none');
-            }, 1000)
+            }, timeout_none)
 
         } else {
 
@@ -22,7 +22,7 @@ const slide = (elementOut, elementIn) => {
             text.classList.remove('d-none');
             setTimeout(() => {
                 text.style.transform = 'translateY(0)';
-            }, 1000)
+            }, 100)
         }
     }
 
@@ -30,28 +30,28 @@ const slide = (elementOut, elementIn) => {
         img.classList.add('transition');
 
         if (!img.classList.contains('d-none')) {
-
+            document.body.style.overflowX = 'hidden';
             img.style.transform = `translateX(${elementOut}%)`;
-
+            
             setTimeout(() => {
                 img.classList.add('d-none');
-            }, 1000)
+            }, timeout_none)
 
         } else {
 
             img.style.transform = `translateX(${elementIn}%)`;
             img.classList.remove('d-none');
-            document.body.style.overflowX = 'hidden';
+
             setTimeout(() => {
                 img.style.transform = 'translateX(0)';
-            }, 1000);
-            setTimeout(() => document.body.style.overflowX = 'unset', 2000)
+            }, 100);
+            setTimeout(() => document.body.style.overflowX = 'unset', time_out_body)
         }
     }
 }
 
-const slideNext = () => slide(250, -250);
-const slidePrev = () => slide(-250, 250);
+const slideNext = () => slide(250, -250, 300, 300);
+const slidePrev = () => slide(-250, 250, 700, 1000);
 
 next.addEventListener('click', slideNext, false);
 prev.addEventListener('click', slidePrev, false);
